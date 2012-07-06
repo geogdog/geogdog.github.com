@@ -1,5 +1,5 @@
 jQuery.githubUser = function(username, callback) {
-  jQuery.getJSON("https://api.github.com/users/" + username + "/repos?callback=?");
+  jQuery.getJSON("https://api.github.com/users/" + username + "/repos?callback=?", callback);
 }
  
 jQuery.fn.loadRepositories = function(username) {
@@ -13,7 +13,7 @@ jQuery.fn.loadRepositories = function(username) {
     var list = $('<dl/>');
     target.empty().append(list);
     $(repos).each(function() {
-      list.append('<dt><a href="'+ this.url +'">' + this.name + '</a></dt>');
+      list.append('<dt><a href="'+ this.html_url +'">' + this.name + '</a></dt>');
       list.append('<dd>' + this.description + '</dd>');
     });
   });
